@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">epsi_projet</string>
+    <string name="txt_home_liste_etudiant">Étudiant</string>
+    <string name="txt_home_liste_etudiant_detail">Infos</string>
+    <string name="txt_home_liste_rayon">liste rayons</string>
+    <string name="txt_home_liste_rayon_detail">Rayons</string>
+    <string name="txt_student_link">www.epsi.fr</string>
+    <string name="txt_student_name">VIEGAS</string>
+    <string name="txt_student_nickname">Quentin</string>
+    <string name="txt_student_email">quentin.viegas@epsi.fr</string>
+    <string name="txt_student_group">Groupe 0</string>
+</resources>
