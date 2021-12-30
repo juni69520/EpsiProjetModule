@@ -24,7 +24,8 @@ class MainActivity : BaseActivity() {
         })
 
         buttonMarketShelf.setOnClickListener(View.OnClickListener {
-
+            val newIntent= Intent(application,ShelfActivity::class.java)
+            startActivity(newIntent)
         })
     }
 }
