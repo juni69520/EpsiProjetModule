@@ -1,4 +1,4 @@
 package fr.epsi.epsiprojetmodule
 
-class Shelf (val id:Int,val name:String,val url:String) {
+class Shelf (val category_id:String,val title:String,val products_url:String) {
 }

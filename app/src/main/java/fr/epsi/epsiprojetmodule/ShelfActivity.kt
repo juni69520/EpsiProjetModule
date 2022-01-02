@@ -1,11 +1,10 @@
 package fr.epsi.epsiprojetmodule
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
-import android.widget.ImageView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.squareup.picasso.Picasso
 import okhttp3.*
 import org.json.JSONObject
 import java.io.IOException
@@ -21,7 +20,7 @@ class ShelfActivity : BaseActivity() {
         val shelfs = arrayListOf<Shelf>()
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerViewShelfs)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        val shelfAdapter = ShelfAdapter(shelfs)
+        val shelfAdapter = ShelfAdapter(shelfs,this)
         recyclerView.adapter = shelfAdapter
 
         val okHttpClient: OkHttpClient = OkHttpClient.Builder().build()
@@ -31,41 +30,31 @@ class ShelfActivity : BaseActivity() {
             .get()
             .cacheControl(CacheControl.FORCE_NETWORK)
             .build()
+
+
         okHttpClient.newCall(request).enqueue(object : Callback{
             override fun onFailure(call: Call, e: IOException) {
-                TODO("Not yet implemented")
+                Log.d("Error", e.toString())
             }
 
+
             override fun onResponse(call: Call, response: Response) {
-                val data = response.body?.string()
+                val data = response.body!!.string()
+                val jsOb= JSONObject(data)
+                val jsArray =jsOb.getJSONArray("items")
 
-                if(data !=null){
-                    val jsOb= JSONObject(data)
-                    val jsArray =jsOb.getJSONArray("items")
-
-                    for(i in 0 until jsArray.length()){
-
-                        val jsShelf = jsArray.getJSONObject(i)
-                        val name =jsShelf.optString("name","")
-                        val url =jsShelf.optString("url","")
-                        val id =jsShelf.optInt("id")
-                        val shelf = Shelf(id, name, url)
+                for(i in 0 until jsArray.length()){
+                    val jsShelf = jsArray.getJSONObject(i)
+                    val name =jsShelf.optString("title","")
+                    val url =jsShelf.optString("products_url","")
+                    val id =jsShelf.optString("category_id", "")
+                    val shelf = Shelf(id, name, url)
                         shelfs.add(shelf)
-                        Log.d("Shelf",shelf.name)
                     }
 
-                    runOnUiThread(Runnable {
+                    runOnUiThread{
                         shelfAdapter.notifyDataSetChanged()
-                    })
-
-//                    Handler(Looper.getMainLooper()).post(Runnable {
-//                        studentAdapter.notifyDataSetChanged()
-//                    })
-
-                    Log.d("WS",data)
-                    Log.d("Student","${shelfs.size}")
-                }
-
+                    }
             }
         })
     }

@@ -1,16 +1,20 @@
 package fr.epsi.epsiprojetmodule
 
+import android.app.Activity
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
+import android.app.ActivityOptions
 
-class ShelfAdapter (private val shelfs: ArrayList<Shelf>): RecyclerView.Adapter<ShelfAdapter.ViewHolder>(){
+class ShelfAdapter (val shelfs: ArrayList<Shelf>,val currentActivity: Activity): RecyclerView.Adapter<ShelfAdapter.ViewHolder>(){
 
     class ViewHolder (view: View) : RecyclerView.ViewHolder(view){
-        val textViewName = view.findViewById<TextView>(R.id.textViewName)
-        val textViewUrl = view.findViewById<TextView>(R.id.textViewUrl)
+        val shelfTitleButton = view.findViewById<TextView>(R.id.shelfTitleButton)
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
@@ -20,8 +24,13 @@ class ShelfAdapter (private val shelfs: ArrayList<Shelf>): RecyclerView.Adapter<
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val shelf = shelfs.get(position)
-        holder.textViewName.text=shelf.name
-        holder.textViewUrl.text=shelf.url
+        holder.shelfTitleButton.text= shelf.title
+        holder.shelfTitleButton.setOnClickListener {
+            val intent = Intent(currentActivity, ProductsActivity::class.java)
+            intent.putExtra("products_url",shelf.products_url)
+            intent.putExtra("title",shelf.title)
+            currentActivity.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int {

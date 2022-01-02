@@ -3,12 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/quent/AndroidStudioProjects/EpsiProjetModule/app/src/main/res/layout/activity_categories.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/quent/AndroidStudioProjects/EpsiProjetModule/app/src/main/res/layout/activity_main.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/quent/AndroidStudioProjects/EpsiProjetModule/app/src/main/res/layout/activity_product.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/quent/AndroidStudioProjects/EpsiProjetModule/app/src/main/res/layout/activity_products.xml" value="0.15052083333333333" />
         <entry key="..\:/Users/quent/AndroidStudioProjects/EpsiProjetModule/app/src/main/res/layout/activity_shelf.xml" value="0.2957427536231884" />
         <entry key="..\:/Users/quent/AndroidStudioProjects/EpsiProjetModule/app/src/main/res/layout/activity_shelfs.xml" value="0.22239583333333332" />
         <entry key="..\:/Users/quent/AndroidStudioProjects/EpsiProjetModule/app/src/main/res/layout/activity_splash.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/quent/AndroidStudioProjects/EpsiProjetModule/app/src/main/res/layout/activity_students.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/quent/AndroidStudioProjects/EpsiProjetModule/app/src/main/res/layout/activity_students_online.xml" value="0.2957427536231884" />
+        <entry key="..\:/Users/quent/AndroidStudioProjects/EpsiProjetModule/app/src/main/res/layout/cell_product.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/quent/AndroidStudioProjects/EpsiProjetModule/app/src/main/res/layout/cell_shelf.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/quent/AndroidStudioProjects/EpsiProjetModule/app/src/main/res/layout/cell_student.xml" value="0.2957427536231884" />
         <entry key="..\:/Users/quent/AndroidStudioProjects/EpsiProjetModule/app/src/main/res/layout/layout_header.xml" value="0.2957427536231884" />

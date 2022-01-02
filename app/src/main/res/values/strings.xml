@@ -9,4 +9,5 @@
     <string name="txt_student_nickname">Quentin</string>
     <string name="txt_student_email">quentin.viegas@epsi.fr</string>
     <string name="txt_student_group">Groupe 0</string>
+    <string name="products_image">products image</string>
 </resources>
